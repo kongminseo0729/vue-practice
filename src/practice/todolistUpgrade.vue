@@ -1,5 +1,5 @@
 <template>
-<div class="todo-bg">
+<div id="todo-bg">
     <div id="wrap">
         <header id="header" >ms의 To-Do list</header>
         <article id="slider">
@@ -59,12 +59,11 @@
     border: 2px solid #e0caf5;
     border-radius: 8px;
 }
-.todo-bg {
+#todo-bg {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-
     background: linear-gradient(
     135deg,
     #f3e7ff,
