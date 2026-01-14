@@ -17,7 +17,7 @@
             </div>
         </main>
         <footer id="footer">
-            <button class="writebtn" @click="write">등록하기</button>
+            <button class="writebtn" @click="SignUp">등록하기</button>
             <button class="canclebtn" @click="cancle">취소</button>
         </footer>
     </div>
@@ -112,4 +112,44 @@ label {
 </style>
 
 <script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+// 입력값
+const namewrite = ref('')
+const titlewrite = ref('')
+const content = ref('')
+
+const SignUp = () => {
+    if (!namewrite.value || !titlewrite.value || !content.value) {
+        alert('모든 항목을 입력해주세요')
+        return
+    }
+
+  // 기존 글 불러오기
+    const posts = JSON.parse(localStorage.getItem('posts')) || []
+
+  // 새 글 추가 unshift 새글은 맨앞에추가
+    posts.unshift({
+    id: Date.now(),
+    name: namewrite.value,
+    title: titlewrite.value,
+    content: content.value,
+    date: new Date().toISOString().slice(0, 10),
+    click: 0
+    })
+
+  // 저장
+    localStorage.setItem('posts', JSON.stringify(posts))
+
+  // 목록으로 이동
+    router.push('/')
+}
+
+// 취소
+const cancle = () => {
+    router.push('/')
+}
 </script>

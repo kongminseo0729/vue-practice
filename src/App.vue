@@ -3,7 +3,7 @@
 //import todolist from './practice/todolist.vue'
 //import todolistUpgrade from './practice/todolistUpgrade.vue'
 //import BoardList from './components/BoardList.vue'
-import BoardWrite from './components/BoardWrite.vue'
+//import BoardWrite from './components/BoardWrite.vue'
 </script>
 
 <template>
@@ -11,5 +11,6 @@ import BoardWrite from './components/BoardWrite.vue'
 <!--<todolist />-->
 <!-- <todolistUpgrade/> -->
 <!-- <BoardList/> -->
-<BoardWrite/>
+<!-- <BoardWrite/> -->
+<router-view />
 </template>
